@@ -1,0 +1,41 @@
+swagger: "2.0"
+info:
+  title: File Management Service
+  version: ""
+host: localhost:8000
+consumes:
+- application/json
+- application/xml
+- application/gob
+produces:
+- application/json
+- application/xml
+- application/gob
+paths:
+  /:
+    post:
+      tags:
+      - files
+      summary: add files
+      operationId: files#add
+      parameters:
+      - name: AddRequestBody
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/FilesAddRequestBody'
+      responses:
+        "200":
+          description: OK response.
+      schemes:
+      - http
+definitions:
+  FilesAddRequestBody:
+    title: FilesAddRequestBody
+    type: object
+    properties:
+      file:
+        type: string
+        example: Corporis minima laborum.
+    example:
+      file: Aliquid voluptatem porro sed eum quae sunt.
